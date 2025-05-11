@@ -4,11 +4,13 @@ Some scripts I've written to help use Adobe Indesign.
 
 ---
 
-## Copy Things.js    [![Download Copy Things script](https://img.shields.io/badge/Download-Copy%20Things-blue)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+## Copy Things.js
 
 This script is useful for copying/updating styles from one document to one or more open destination documents.
 
-![The Copy Things UI](docs/images/copy-things-ui-1.png)
+[![Download Copy Things script](https://img.shields.io/badge/Download-Copy%20Things-blue)](Copy%20Things.js)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+![The Copy Things script UI](docs/images/copy-things-ui-1.png)
 
 1. Choose the thing type: *Character Styles, Paragraph Styles, Object Styles, Cell Styles, TableStyles, Swatches*.
 1. Filter the list of things.
