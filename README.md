@@ -8,7 +8,7 @@ Some scripts I've written to help use Adobe Indesign.
 
 This script is useful for copying/updating styles from one document to one or more open destination documents.
 
-[![Download Copy Things script](https://img.shields.io/badge/Download-Copy%20Things-blue)](Copy%20Things.js)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+[![Download Copy Things script](https://img.shields.io/badge/Download-Copy_Things.js-cfff0a?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Copy%20Things.js)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)   ![Posted 2025-05-12](https://img.shields.io/badge/Posted-2025--05--12-66A?style=flat-square)
 
 ![The Copy Things script UI](docs/images/copy-things-ui-1.png)
 
@@ -41,22 +41,20 @@ When I get time!
 ## Show your support
 
 
-If any of these scripts will save you time, please consider supporting me:
+If any of these scripts will save you time, please consider supporting me!
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
 
 ---
 
 ## Installation
 
-### Step 1: Download the Scripts
+Step 1: Download the Scripts
 
-Download all script files (zipped):
- [![Download](https://img.shields.io/badge/download-latest-blue.svg?style=for-the-badge)](https://github.com/mark1bean/scripts-for-adobe-indesign/archive/refs/heads/main.zip)
+ [![Download](https://img.shields.io/badge/Download-All_scripts_(zipped)-cfff0a?style=flat-square)](https://github.com/mark1bean/scripts-for-adobe-indesign/archive/refs/heads/main.zip)
 
-#### Step 2: Place the Scripts in the Appropriate Folder
+Step 2: Place the Scripts in the Appropriate Folder
 
-Move the downloaded files to your Adobe application's ExtendScript folder.
 
 See [How To Install Scripts in Adobe Indesign](https://creativepro.com/how-to-install-scripts-in-indesign).
 
@@ -66,9 +64,7 @@ See [How To Install Scripts in Adobe Indesign](https://creativepro.com/how-to-in
 
 Created by Mark Bean ("[m1b](https://community.adobe.com/t5/user/viewprofilepage/user-id/13791991)").
 
-## Acknowledgements
-
-TBC
+---
 
 ## License
 
