@@ -2,6 +2,13 @@
 
 Various scripts I've written to help use Adobe Indesign.
 
+## 1. Copy Styles.js
+
+This script is useful for copying/updating styles from one document to one or more open destination documents.
+
+
+
+
 ## Show your support
 
 ![Profile Picture](https://avatars.githubusercontent.com/u/29587184)
