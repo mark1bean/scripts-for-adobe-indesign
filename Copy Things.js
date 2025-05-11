@@ -444,7 +444,6 @@ function getThingByPath(doc, constructorName, path, delimiter) {
                 return;
 
             subGroups = thingType.getSubGroups(target)
-            $.writeln('subGroups = ' + subGroups + ' ' + (subGroups ? subGroups.length : 'none'));
 
             if (subGroups && subGroups.length)
                 // change target to sub groups
