@@ -16,7 +16,7 @@ Follow along this little story to see what happens.
 
 ![Numbered Markers script UI](images/numbered-markers-3.png)
 
-Note: if you already have your document populated with "unmanaged" markers, you may want to turn off *Remove orphan markers* this first time, because you might need your unlinked markers to manually replacing with the new linked markers. In most other cases it is best to leave *Remove orphan markers* ON.
+Note: if you already have your document populated with "unmanaged" markers, and you don't want to reposition them, see [But I already have my markers all set up](#but-i-already-have-my-markers-all-set-up).
 
 ---
 
