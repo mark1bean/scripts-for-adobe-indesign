@@ -47,7 +47,7 @@ A script for managing numbered markers linked to a numbered list. For example: n
 
 Why is it good? It saves you from manually re-numbering all your markers when the list changes order, or when items are removed.
 
-Read the [quick tutorial](doc/numbered-markers-quick-tutorial.md). Or the ultra-quick tutorial.
+Read the [quick tutorial](docs/numbered-markers-quick-tutorial.md). Or the ultra-quick tutorial.
 
  You will need:
 
