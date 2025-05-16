@@ -2,28 +2,35 @@
 
 Some scripts I've written to help use Adobe Indesign.
 
+## Contents
+
+1. [Copy Things](#copy-things)
+1. [Numbered Markers](#numbered-markers)
+
 ---
 
-## Copy Things.js
+## Copy Things
 
-This script is useful for copying/updating styles from one document to one or more open destination documents.
+[![Download Copy Things script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Copy%20Things.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-05-12](https://img.shields.io/badge/Version-2025--05--12-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
 
-[![Download Copy Things script](https://img.shields.io/badge/Download-Copy_Things.js-cfff0a?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Copy%20Things.js)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)   ![Posted 2025-05-12](https://img.shields.io/badge/Posted-2025--05--12-66A?style=flat-square)
-
-![The Copy Things script UI](docs/images/copy-things-ui-1.png)
-
-1. Choose the thing type: *Character Styles, Paragraph Styles, Object Styles, Cell Styles, TableStyles, Swatches*.
-1. Filter the list of things.
-1. The list of things to copy.
-1. The list of destination documents (all open documents).
-1. Press this to do the copying.
+A script for copying/updating styles from one document to one *or more* destination documents.
 
 ### Features
 
 - Quickly access and select multiple things to copy in one go.
 - Copy to as many documents as you have open in one go.
 - Will update existing things, if they already exists.
-- Takes account of the hierarchic structure in the source document, and replicates it in the destination.
+- Takes account of the hierarchic structure in the source document, and replicates it in the destination (ie. keeps your folder structure intact).
+
+![The Copy Things script UI](docs/images/copy-things-ui-1.png)
+
+### Usage
+
+1. Choose the thing type: *Character Styles, Paragraph Styles, Object Styles, Cell Styles, TableStyles, Swatches*.
+1. Filter the list of things, if it helps.
+1. Choose the things to copy.
+1. Choose the destination documents (will show all open documents).
+1. Press the Copy button to perform the copying.
 
 ### Limitations
 
@@ -32,29 +39,50 @@ This script is useful for copying/updating styles from one document to one or mo
 
 ---
 
-## More Script To Come
+## Numbered Markers
 
-When I get time!
+[![Download Copy Things script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Numbered%20Markers.js)   ![ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-05-15](https://img.shields.io/badge/Version-2025--05--15-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+A script for managing numbered markers linked to a numbered list. For example: numbered place markers on a map, linked to the list of place names.
+
+Why is it good? It saves you from manually re-numbering all your markers when the list changes order, or when items are removed.
+
+Read the [quick tutorial](doc/numbered-markers-quick-tutorial.md). Or the ultra-quick tutorial.
+
+ You will need:
+
+1. A marker — a text frame **with an object style applied**, eg. a circle text frame with a number in it.
+1. A numbered list — paragraphs **with a paragraph style applied**, that *must use Indesign's numbering system*, eg. a list of place names for a map legend.
+
+Run this script, choosing the list paragraph style and the marker object style and make sure that "Create missing markers" is ON.
+
+Result: the script will create as many markers as needed and they will be linked to your list. Now you can position them freely and they will update every time you subsequently run the script.
+
+![Numbered Markers script UI](docs/images/numbered-markers-17.png)
+
+### Limitations
+
+- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues).
+- If you already have markers set up, see the last section of the [quick tutorial](doc/numbered-markers-quick-tutorial.md).
 
 ---
 
-## Show your support
+## More scripts coming
 
+I will be sharing more of my scripts when I get time. Click "Watch" to get notified of updates!
 
-If any of these scripts will save you time, please consider supporting me!
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+[![Star](https://img.shields.io/github/stars/mark1bean/scripts-for-adobe-indesign.svg?style=social&label=Star)](https://github.com/mark1bean/scripts-for-adobe-indesign)
 
 ---
 
 ## Installation
 
-Step 1: Download the Scripts
+Step 1: Download the individual scripts (see buttons under script names), or
+[![Download](https://img.shields.io/badge/Download_all_scripts-Free!-cfff0a?style=flat-square)](https://github.com/mark1bean/scripts-for-adobe-indesign/archive/refs/heads/main.zip)
 
- [![Download](https://img.shields.io/badge/Download-All_scripts_(zipped)-cfff0a?style=flat-square)](https://github.com/mark1bean/scripts-for-adobe-indesign/archive/refs/heads/main.zip)
+(Note: If the script shows as raw text in the browser, save it to your computer with the extension ".js".)
 
 Step 2: Place the Scripts in the Appropriate Folder
-
 
 See [How To Install Scripts in Adobe Indesign](https://creativepro.com/how-to-install-scripts-in-indesign).
 
@@ -62,10 +90,14 @@ See [How To Install Scripts in Adobe Indesign](https://creativepro.com/how-to-in
 
 ## Author
 
-Created by Mark Bean ("[m1b](https://community.adobe.com/t5/user/viewprofilepage/user-id/13791991)").
+Created by Mark Bean (Adobe Community Expert "[m1b](https://community.adobe.com/t5/user/viewprofilepage/user-id/13791991)").
+
+If any of these scripts will save you time, please consider supporting me!
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
 
 ---
 
 ## License
 
-This project is open-source and available under the MIT License. See the [LICENSE](LICENSE) file for details.
+These scripts are open-source and available under the MIT License. See the [LICENSE](LICENSE) file for details.

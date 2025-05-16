@@ -756,7 +756,7 @@ function ui(settings) {
 
         thingsGroup = group.add('group {orientation:"column", alignChildren:["fill","fill"], margins:[0,0,15,0] }'),
         abovePathsRow = thingsGroup.add('group {orientation:"row", alignChildren:["fill","fill"] }'),
-        pathsLabel = abovePathsRow.add("statictext { text:'asdasdasd', alignment:['left','center'], justify:'left' }"),
+        pathsLabel = abovePathsRow.add("statictext { text:'', alignment:['left','center'], justify:'left' }"),
         filterGroup = abovePathsRow.add('group {orientation:"row" }'),
         filterLabel = filterGroup.add("statictext { text:'Search:', alignment:['right','bottom'], justify:'right',preferredSize: [-1,24] }"),
         filterField = filterGroup.add('edittext { text: "", alignment:["right","bottom"], preferredSize: [140,24] }'),
