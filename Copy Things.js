@@ -12,9 +12,13 @@
  *   - Swatchs
  *
  * @author m1b
- * @version 0.1 / 2025-05-11
+ * @version 2025-05-16
  */
 function main() {
+
+    if (app.documents.length < 2)
+        return alert('Please open at least two documents and try again.');
+
     // the source document
     var doc = app.activeDocument;
 
@@ -58,7 +62,7 @@ function main() {
             namePlural: 'characterStyles',
             attachPayload: function (textFrame, style) { textFrame.texts[0].appliedCharacterStyle = style },
             getFromDocument: function (doc) { return doc.allCharacterStyles },
-            getChildren: function (group) { return group.characterStyles },
+            getChildren: function (group) { return group.hasOwnProperty('characterStyles') ? group.characterStyles : [] },
             getSubGroups: function (group) { return group.characterStyleGroups },
         },
 
@@ -72,7 +76,7 @@ function main() {
             namePlural: 'paragraphStyles',
             attachPayload: function (textFrame, style) { textFrame.texts[0].appliedParagraphStyle = style },
             getFromDocument: function (doc) { return doc.allParagraphStyles },
-            getChildren: function (group) { return group.paragraphStyles },
+            getChildren: function (group) { return group.hasOwnProperty('paragraphStyles') ? group.paragraphStyles : [] },
             getSubGroups: function (group) { return group.paragraphStyleGroups },
         },
 
@@ -84,10 +88,10 @@ function main() {
             parentName: 'parent',
             paths: [],
             namePlural: 'objectStyles',
-            getChildren: function (group) { return group.objectStyles },
-            getSubGroups: function (group) { return group.objectStyleGroups },
-            getFromDocument: function (doc) { return doc.allObjectStyles },
             attachPayload: function (pageItem, style) { pageItem.appliedObjectStyle = style },
+            getChildren: function (group) { return group.hasOwnProperty('objectStyles') ? group.objectStyles : [] },
+            getFromDocument: function (doc) { return doc.allObjectStyles },
+            getSubGroups: function (group) { return group.objectStyleGroups },
         },
 
         'CellStyle': {
@@ -102,8 +106,8 @@ function main() {
                 var table = pageItem.texts[0].tables.add();
                 table.cells[0].appliedCellStyle = style;
             },
+            getChildren: function (group) { return group.hasOwnProperty('cellStyles') ? group.cellStyles : [] },
             getFromDocument: function (doc) { return doc.allCellStyles },
-            getChildren: function (group) { return group.cellStyles },
             getSubGroups: function (group) { return group.cellStyleGroups },
         },
 
@@ -119,8 +123,8 @@ function main() {
                 var table = pageItem.texts[0].tables.add();
                 table.appliedTableStyle = style;
             },
+            getChildren: function (group) { return group.hasOwnProperty('tableStyles') ? group.tableStyles : [] },
             getFromDocument: function (doc) { return doc.allTableStyles },
-            getChildren: function (group) { return group.tableStyles },
             getSubGroups: function (group) { return group.tableStyleGroups },
         },
 
