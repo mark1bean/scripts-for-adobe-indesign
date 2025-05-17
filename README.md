@@ -6,6 +6,7 @@ Some scripts I've written to help use Adobe Indesign.
 
 1. [Copy Things](#copy-things)
 1. [Numbered Markers](#numbered-markers)
+1. [Combine Documents](#combine-documents)
 
 ---
 
@@ -22,7 +23,7 @@ A script for copying/updating styles from one document to one *or more* destinat
 - Will update existing things, if they already exists.
 - Takes account of the hierarchic structure in the source document, and replicates it in the destination (ie. keeps your folder structure intact).
 
-![The Copy Things script UI](docs/images/copy-things-ui-1.png)
+![Copy Things script's UI](docs/images/copy-things-ui-1.png)
 
 ### Usage
 
@@ -34,7 +35,7 @@ A script for copying/updating styles from one document to one *or more* destinat
 
 ### Limitations
 
-- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues).
+- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
 - The scripting API doesn't provide control over the *order* of the copied things, so you may need to sort them afterwards.
 
 ---
@@ -58,12 +59,32 @@ Run this script, choosing the list paragraph style and the marker object style a
 
 Result: the script will create as many markers as needed and they will be linked to your list. Now you can position them freely and they will update every time you subsequently run the script.
 
-![Numbered Markers script UI](docs/images/numbered-markers-17.png)
+![Numbered Markers script's UI](docs/images/numbered-markers-17.png)
 
-### Limitations
+#### Limitations
 
-- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues).
+- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
 - If you already have markers set up, see the last section of the [quick tutorial](doc/numbered-markers-quick-tutorial.md).
+
+---
+
+## Combine Documents
+
+[![Download Combine Documents script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Combine%20Documents.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-05-17](https://img.shields.io/badge/Version-2025--05--17-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+A script for combining multiple documents into one.
+
+#### How to use
+
+1. Add all documents to a **book**, if not already. This is how you will tell the script in which *order* you want to combine the documents. Once the documents are combined, you don't need to keep this book; it is just a stepping stone.
+1. Run script and choose the book (if more than one) and set the options you want.
+1. Click "Combine"
+
+![Combine Documents script's UI](docs/images/combine-documents-ui-1.png)
+
+#### Limitations
+
+- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
 
 ---
 
@@ -78,7 +99,7 @@ I will be sharing more of my scripts when I get time. Click "Watch" to get notif
 ## Installation
 
 Step 1: Download the individual scripts (see buttons under script names), or
-[![Download](https://img.shields.io/badge/Download_all_scripts-Free!-cfff0a?style=flat-square)](https://github.com/mark1bean/scripts-for-adobe-indesign/archive/refs/heads/main.zip)
+[![Download](https://img.shields.io/badge/Download_all_scripts_(.zip)-*_FREE!_*-F50?style=flat-square)](https://github.com/mark1bean/scripts-for-adobe-indesign/archive/refs/heads/main.zip)
 
 (Note: If the script shows as raw text in the browser, save it to your computer with the extension ".js".)
 
@@ -95,6 +116,8 @@ Created by Mark Bean (Adobe Community Expert "[m1b](https://community.adobe.com/
 If any of these scripts will save you time, please consider supporting me!
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+![Profile picture](https://github.com/mark1bean.png)
 
 ---
 
