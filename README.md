@@ -7,6 +7,7 @@ Some scripts I've written to help use Adobe Indesign.
 1. [Copy Things](#copy-things)
 1. [Numbered Markers](#numbered-markers)
 1. [Combine Documents](#combine-documents)
+1. [Style Highlighter](#style-highlighter)
 
 ---
 
@@ -84,6 +85,37 @@ A script for combining multiple documents into one.
 
 #### Limitations
 
+- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
+
+---
+
+## Style Highlighter
+
+[![Download Combine Documents script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Style%20Highlighter.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-06-17](https://img.shields.io/badge/Version-2025--06--17-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+Highlights all text in a chosen paragraph or character style.
+
+ A non-damaging visual tool to spot where styles have gone astray.
+
+#### How to use
+
+1. Run script to show the UI.
+1. Select one (or more) paragraph or character styles.
+1. Select a highlight color.
+1. Click "Add highlighter".
+
+![Style Highlighter script's UI](docs/images/style-highlighter-ui-1.png)
+
+#### Notes
+
+- The script makes use of **conditions** to perform the highlighting. It shouldn't interfere with existing conditions, because multiple conditions can be applied to the same text without a problem. The script uses a naming prefix to avoid collisions.
+- The highlighting is only visible when in normal screen mode, and disappears in preview mode.
+- You can leave the highlighting conditions active for as long as you want.
+- To remove the highlighting you can either (a) manually remove the Highlighter Style condition from the Conditions Panel, or (b) run the script and choose "Remove all Highlighters" to remove them all.
+
+#### Limitations
+
+- The highlighting operation happens when you press the "Add Highlighter" button; it will not highlight new paragraphs even if they use the highlighted style.
 - Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
 
 ---
