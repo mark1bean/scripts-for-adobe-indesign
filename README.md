@@ -93,9 +93,7 @@ A script for combining multiple documents into one.
 
 [![Download Combine Documents script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Style%20Highlighter.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-06-17](https://img.shields.io/badge/Version-2025--06--17-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
 
-Highlights all text in a chosen paragraph or character style.
-
- A non-damaging visual tool to spot where styles have gone astray.
+Highlights all text in a chosen paragraph or character style; a non-damaging visual tool to spot where styles have gone astray.
 
 #### How to use
 
@@ -108,7 +106,9 @@ Highlights all text in a chosen paragraph or character style.
 
 #### Notes
 
+- The script *does not modify your styles* at all.
 - The script makes use of **conditions** to perform the highlighting. It shouldn't interfere with existing conditions, because multiple conditions can be applied to the same text without a problem. The script uses a naming prefix to avoid collisions.
+- It is okay for your styles to have conditions in them, the script won't bother them.
 - The highlighting is only visible when in normal screen mode, and disappears in preview mode.
 - You can leave the highlighting conditions active for as long as you want.
 - To remove the highlighting you can either (a) manually remove the Highlighter Style condition from the Conditions Panel, or (b) run the script and choose "Remove all Highlighters" to remove them all.

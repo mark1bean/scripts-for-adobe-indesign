@@ -6,15 +6,18 @@
  * Works by creating "Highlighter" conditions and
  * applying to all texts found in the selected style(s).
  *
- * It seems quite safe to use because it will not override
- * existing styles (unless they are created with this script!)
- * and a button in the UI allows for removing all highlighters.
+ * It is safe to use because it will not modify the styles, but
+ * rather applies a "highlighter" condition (in addition to
+ * any existing conditions applied).
  *
- * TIP: it is fine to manually remove a highlighter condition.
+ * Highlighting is removed by removing the highlighter condition(s),
+ * and the script provides a "Remove All Highlighters" option
+ * to make this quick and easy.
+ *
+ * TIP: it is fine to manually remove highlighter conditions.
  *
  * @author m1b
  * @version 2025-06-17
- * @discussion https://community.adobe.com/t5/indesign-discussions/can-a-paragraph-style-in-indesign-be-highlighted-in-color/m-p/15373323
  */
 function main() {
 
@@ -25,7 +28,7 @@ function main() {
 
         // user settings
         activeThingConstructorName: 'ParagraphStyle',
-        highlighterConditionNamePrefix: 'Highlight Style ',
+        highlighterConditionNamePrefix: '_Highlighter ',
         pathDelimiter: ' > ',
         showDefaultThings: false,
         showResults: true,
@@ -227,7 +230,7 @@ function main() {
     };
 
 };
-app.doScript(main, ScriptLanguage.JAVASCRIPT, undefined, UndoModes.ENTIRE_SCRIPT, 'Highlight Styled Text');
+app.doScript(main, ScriptLanguage.JAVASCRIPT, undefined, UndoModes.ENTIRE_SCRIPT, 'Style Highlighter');
 
 /**
  * Given a document's thing, returns a string path,
@@ -493,7 +496,7 @@ function getProperties(things, keyPath) {
 };
 
 /**
- * Shows UI for Highlight Styles script.
+ * Shows UI for Style Highlighter script.
  * NOTE: expects to access `ThingTypes` global.
  * @author m1b
  * @version 2025-06-17
@@ -505,9 +508,7 @@ function ui(settings) {
     const LISTBOX_WIDTH = 700,
         LISTBOX_HEIGHT = 200;
 
-    var doc = settings.doc;
-
-    var w = new Window("dialog { text:'Highlight Styles', properties:{ resizeable:false } }"),
+    var w = new Window("dialog { text:'Style Highlighter', properties:{ resizeable:false } }"),
 
         typesPanel = w.add("tabbedpanel {alignment:['fill','top']  }"),
 
