@@ -1,6 +1,6 @@
 # Scripts for Adobe Indesign
 
-Some scripts I've written to help use Adobe Indesign.
+Some scripts I've written to do useful things in Adobe Indesign.
 
 ## Contents
 
@@ -8,6 +8,7 @@ Some scripts I've written to help use Adobe Indesign.
 1. [Numbered Markers](#numbered-markers)
 1. [Combine Documents](#combine-documents)
 1. [Style Highlighter](#style-highlighter)
+1. [Generate Underlines](#generate-underlines)
 
 ---
 
@@ -117,6 +118,40 @@ Highlights all text in a chosen paragraph or character style; a non-damaging vis
 
 - The highlighting operation happens when you press the "Add Highlighter" button; it will not highlight new paragraphs even if they use the highlighted style.
 - Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
+
+---
+
+## Generate Underlines
+
+[![Download Copy Things script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Generate%20Underlines.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-07-19](https://img.shields.io/badge/Version-2025--07--19-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+A script for drawing multiple, overlapping underlines.
+
+### Features
+
+- Assign underlining using simple Conditions.
+- Styles underlines using Object Styles.
+- To update underlines after text re-flow, re-run script.
+
+### Usage
+
+1. Start with the text you want to underline.
+
+![Two text frames in Indesign](docs/images/generate-underlines-1.png)
+
+2. Apply the "underline" Conditions to the text as needed.
+
+![Two text frames in Indesign showing applied Conditions as highlighted colors](docs/images/generate-underlines-2.png)
+
+3. Run the script, which will draw the underlines, grouped directly below the text frame(s).
+
+![The text frames now have underlining](docs/images/generate-underlines-3.png)
+
+Note: the underlines are normal drawn lines (path items).
+
+![The underlines, without the text](docs/images/generate-underlines-4.png)
+
+Note: every time you run the script, it will remove any previous underlining before generating the new result.
 
 ---
 
