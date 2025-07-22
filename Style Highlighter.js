@@ -14,7 +14,7 @@
  * and the script provides a "Remove All Highlighters" option
  * to make this quick and easy.
  *
- * TIP: it is fine to manually remove highlighter conditions.
+ * TIP: it is okay to manually remove highlighter conditions.
  *
  * @author m1b
  * @version 2025-06-17
@@ -32,11 +32,11 @@ function main() {
         pathDelimiter: ' > ',
         showDefaultThings: false,
         showResults: true,
-        showUI: true,
 
         // highlight colors
         highlights: [
 
+            { name: 'None', rgb: [99, 99, 99] },
             { name: 'Fiesta', rgb: [255, 85, 85] },
             { name: 'Brick Red', rgb: [203, 90, 90] },
             { name: 'Orange', rgb: [255, 165, 0] },
@@ -53,7 +53,6 @@ function main() {
             { name: 'Violet', rgb: [238, 130, 238] },
             { name: 'Magenta', rgb: [255, 0, 255] },
             { name: 'Lipstick', rgb: [222, 20, 84] },
-            { name: 'None', rgb: [99, 99, 99] },
 
         ],
 
@@ -109,14 +108,22 @@ function main() {
 
     settings.activeThingType = ThingTypes[settings.activeThingConstructorName];
 
-    // show UI ?
-    var result = settings.showUI && ui(settings) || 1;
+    // add functions used by the UI
+    settings.highlightTextsInStyle = highlightTextsInStyle;
+    settings.removeAllHighlights = removeAllHighlighters;
+
+    // show UI
+    var result = ui(settings);
 
     if (2 === result)
         // user cancelled UI
         return;
 
-    else if (1 === result) {
+    // change the screen mode so the highlighting is visible
+    doc.layoutWindows[0].screenMode = ScreenModeOptions.PREVIEW_OFF;
+
+
+    function highlightText(settings) {
 
         /* ----------------------------- *
          *  HIGHLIGHT THE STYLED TEXTS   *
@@ -137,19 +144,20 @@ function main() {
         // change the screen mode so the highlighting is visible
         doc.layoutWindows[0].screenMode = ScreenModeOptions.PREVIEW_OFF;
 
-    }
+    };
 
-    else if (3 === result) {
+    function removeAllHighlighters(settings) {
 
         /* ------------------------------------ *
          *  REMOVE ALL HIGHLIGHTER CONDITIONS   *
          * ------------------------------------ */
+        debugger; // 2025-07-02
 
         for (var i = doc.conditions.length - 1; i >= 0; i--)
             if (0 === doc.conditions[i].name.indexOf(settings.highlighterConditionNamePrefix))
                 doc.conditions[i].remove();
 
-    }
+    };
 
     /**
      * Adds a highlighter condition to all text found in the given style.
@@ -525,15 +533,17 @@ function ui(settings) {
 
         colorSection = w.add("Group { orientation: 'row', alignment: ['fill','fill'], margins:[10,10,10,0] }"),
         highlightButtons = colorSection.add("Group { orientation: 'row', alignment: ['fill','center'], alignChildren:['left','center'], preferredSize:[-1,60] }"),
-        highlightLabel = colorSection.add("statictext { text:'Highlight color:', alignment:['fill','center'], justify:'right', preferredSize:[-1,60] }"),
-        activeColorPanel = colorSection.add("Group { orientation: 'row', alignment: ['right','center'], preferredSize:[60,60] }"),
+        highlightSection = colorSection.add("Group { orientation: 'column', alignment: ['fill','fill'], margins:[0,0,0,0] }"),
+        activeColorPanel = highlightSection.add("Group { orientation: 'row', alignment: ['center','center'], preferredSize:[60,60] }"),
+        highlightLabel = activeColorPanel.add("statictext { text:'Highlight color:', alignment:['fill','fill'], justify:'center', preferredSize:[-1,60] }"),
+        highlightButton = highlightSection.add("Button { text:'Add Highlighter', properties: {} }"),
 
         bottomUI = w.add("Group { orientation: 'row', alignment: ['fill','bottom'], margins:[10,10,10,10] }"),
         altButtons = bottomUI.add("Group { orientation: 'row', alignment: ['left','bottom'] }"),
-        removeAllHighlightButton = altButtons.add("Button { text:'Remove All Highlighters'}"),
+        removeAllHighlightersButton = altButtons.add("Button { text:'Remove All Highlighters'}"),
         buttons = bottomUI.add("Group { orientation: 'row', alignment: ['right','bottom'] }"),
-        cancelButton = buttons.add("Button { text:'Cancel', properties: { name:'cancel' } }"),
-        highlightButton = buttons.add("Button { text:'Add Highlighter', properties: { name:'ok' } }");
+        // cancelButton = buttons.add("Button { text:'Cancel', properties: { name:'cancel' } }"),
+        doneButton = buttons.add("Button { text:'Done', properties: { name:'ok' } }");
 
     pathsLabel.preferredSize.width = Math.floor(LISTBOX_WIDTH * .6);
     pathsListBox.preferredSize = [LISTBOX_WIDTH, LISTBOX_HEIGHT];
@@ -580,8 +590,30 @@ function ui(settings) {
 
     };
 
-    highlightButton.onClick = function () { w.close(1) };
-    removeAllHighlightButton.onClick = function () { w.close(3) };
+    highlightButton.onClick = function () {
+
+        /* ----------------------------- *
+         *  HIGHLIGHT THE STYLED TEXTS   *
+         * ----------------------------- */
+
+        if (!settings.activeThingType)
+            return alert('Error: no active thing type.');
+
+        if (!settings.highlight)
+            return alert('Error: no highlight chosen.');
+
+        if (0 === settings.pathsToHighlight.length)
+            return alert('Error: styles chosen.');
+
+        for (var i = 0; i < settings.pathsToHighlight.length; i++)
+            settings.highlightTextsInStyle(settings.pathsToHighlight[i]);
+
+        // change the screen mode so the highlighting is visible
+        settings.doc.layoutWindows[0].screenMode = ScreenModeOptions.PREVIEW_OFF;
+
+    };
+
+    removeAllHighlightersButton.onClick = settings.removeAllHighlighters;
 
     /** clears the filter field */
     clearButton.onClick = function () {
@@ -622,7 +654,7 @@ function ui(settings) {
 
         clearButton.enabled = filterField.text.length > 0;
 
-        removeAllHighlightButton.enabled = hasHighlighterConditions(settings.doc);
+        removeAllHighlightersButton.enabled = hasHighlighterConditions(settings.doc);
 
     };
 
@@ -717,7 +749,7 @@ function ui(settings) {
      */
     function addColorChip(container, color, clickFunction, index) {
 
-        var group = container.add("group {margins: [0,0,0,0] }");
+        var group = container.add("group {margin: [0,0,0,0] }");
         group.size = [20, 20];
         group.index = index;
         group.graphics.backgroundColor = group.graphics.newBrush(
@@ -725,6 +757,32 @@ function ui(settings) {
         );
 
         group.addEventListener("click", clickFunction);
+
+        if (0 === index) {
+
+            // the NONE color
+            group.onDraw = function () {
+                var g = this.graphics;
+
+                g.backgroundColor = group.graphics.newBrush(
+                    g.BrushType.SOLID_COLOR, [1, 1, 1, 1]
+                );
+
+                // Create a black pen
+                var blackPen = g.newPen(
+                    g.PenType.SOLID_COLOR,
+                    [0, 0, 0, 1], // Black (R,G,B,A)
+                    1 // 1px line width
+                );
+
+                g.pen = blackPen;
+
+                // Draw a line from bottom-left to top-right
+                g.moveTo(0, this.size[1]);           // (x=0, y=height)
+                g.lineTo(this.size[0], 0);           // (x=width, y=0)
+            }
+
+        }
 
         return group;
 
