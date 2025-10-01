@@ -158,7 +158,7 @@ Note: every time you run the script, it will remove any previous underlining bef
 
 ## Synchronize All Documents Text Selection
 
-[![Download Synchronize All Documents Text Selection script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Show%20Text%20In%20All%20Documents.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-03-15](https://img.shields.io/badge/Version-2025--03--15-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+[![Download Synchronize All Documents Text Selection script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Synchronize%20All%20Documents%20Text%20Selection.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-03-15](https://img.shields.io/badge/Version-2025--03--15-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
 
 This script can be incredibly useful when working on **multiple documents** that all have matching headings or subheadings.
 
