@@ -9,6 +9,7 @@ Some scripts I've written to do useful things in Adobe Indesign.
 1. [Combine Documents](#combine-documents)
 1. [Style Highlighter](#style-highlighter)
 1. [Generate Underlines](#generate-underlines)
+1. [Synchronize All Documents Text Selection](#synchronize-all-documents-text-selection)
 
 ---
 
@@ -139,11 +140,11 @@ A script for drawing multiple, overlapping underlines.
 
 ![Two text frames in Indesign](docs/images/generate-underlines-1.png)
 
-2. Apply the "underline" Conditions to the text as needed.
+1. Apply the "underline" Conditions to the text as needed.
 
 ![Two text frames in Indesign showing applied Conditions as highlighted colors](docs/images/generate-underlines-2.png)
 
-3. Run the script, which will draw the underlines, grouped directly below the text frame(s).
+1. Run the script, which will draw the underlines, grouped directly below the text frame(s).
 
 ![The text frames now have underlining](docs/images/generate-underlines-3.png)
 
@@ -152,6 +153,20 @@ Note: the underlines are normal drawn lines (path items).
 ![The underlines, without the text](docs/images/generate-underlines-4.png)
 
 Note: every time you run the script, it will remove any previous underlining before generating the new result.
+
+---
+
+## Synchronize All Documents Text Selection
+
+[![Download Synchronize All Documents Text Selection script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Show%20Text%20In%20All%20Documents.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-03-15](https://img.shields.io/badge/Version-2025--03--15-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+This script can be incredibly useful when working on **multiple documents** that all have matching headings or subheadings.
+
+Let's say you have 20 documents open and you need to edit the technical specs section of each. In one of the documents, you select the subheading "Technical Specs" and run this script. All those documents will show the "Technical Specs" text with the same zoom level. This saves HUGE amounts of time navigating around each open document.
+
+> TIP: Use the window cycling shortcut key:  command-tilde (MacOS) control-tab (Windows).
+
+Important note: script will work more reliably if your text, eg. "Technical Specs" subheading in the example above, has a sensible paragraph style applied. The script will also match the paragraph style (and character style) as well as the text contents. This avoids cases where the script might match the string "Technical Specs" in the body text or somewhere else in the document.
 
 ---
 
