@@ -5,6 +5,7 @@ Some scripts I've written to do useful things in Adobe Indesign.
 ## Contents
 
 1. [Copy Things](#copy-things)
+1. [Fix Links](#fix-links)
 1. [Numbered Markers](#numbered-markers)
 1. [Combine Documents](#combine-documents)
 1. [Style Highlighter](#style-highlighter)
@@ -40,6 +41,38 @@ A script for copying/updating styles from one document to one *or more* destinat
 
 - Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
 - The scripting API doesn't provide control over the *order* of the copied things, so you may need to sort them afterwards.
+
+---
+
+## Fix Links
+
+[![Download Fix Links script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Fix%20Links.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-10-03](https://img.shields.io/badge/Version-2025--10--03-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+A super-helpful script for matching up missing links after moving platforms or servers.
+
+For example Bob has the original files here:
+
+`/Users/bob/Dropbox/...`
+
+But for Alice the path to the same files is:
+
+`/Users/alice/Library/CloudStorage/Dropbox/...`
+
+This is a big problem, and when the linked files are in a complex file structure, it can be very time consuming to fix via Indesign's native tools.
+
+#### How to use
+
+1. Open your document or documents (script will process all open documents).
+1. Run script.
+1. Cilck a link from the Broken Links list.
+1. Click "Find" button and manually relink to that correct file.
+1. Script will use the new link to try to fix broken links.
+1. Repeat step 2 and 3 until Broken Links list is empty.
+1. Click "Fix [N] Links" button to perform the changes to the open document(s).
+
+> Tip: You can store the settings in the document(s) so the next time you need it, you won't have to perform steps 3 and 4 again. This applies in reverse, so if Alice sends the file back to Bob, when Bob runs the script it will be ready to return the paths to match Bob's environment.
+
+**Important Note**: this script won't help much if the links are randomly missing in various places. It is specially designed to help when relinking a parent folder to a consistent set of sub-folders, such as when moving a job folder across platforms or servers.
 
 ---
 
