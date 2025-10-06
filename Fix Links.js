@@ -111,7 +111,7 @@ function ui(settings) {
         currentPathText = relinkGroup.add('statictext { preferredSize: [-1,35], text:"", justify: "left", alignment:["fill","top"], properties: {multiline: true, scrolling: true } }'),
         relinkButton = relinkGroup.add('button { text:"Find", alignment:["right","top"]}'),
 
-        brokenLinksListGroup = w.add('group { orientation:"row", alignChildren:["center","top"] }'),
+        brokenLinksListGroup = w.add('group { orientation:"row" }'),
         brokenLinksList = brokenLinksListGroup.add("ListBox { alignment:['fill','fill'], preferredSize:[-1,-1], properties:{ multiselect:false, showHeaders:true, numberOfColumns:1, columnTitles:['Broken Links'], columnWidths:[-1] } }"),
 
         bottomUI = w.add("group {orientation:'row', alignment:['fill','top'], margins: [0,20,0,0] }"),
@@ -121,7 +121,7 @@ function ui(settings) {
         cancelButton = buttons.add('button { text:"Cancel", properties: { name: "cancel" } }'),
         fixLinksButton = buttons.add('button { text:"", preferredSize:[130,-1] }');
 
-    brokenLinksList.preferredSize = [PATH_LIST_WIDTH, Math.min(PATH_LIST_HEIGHT, brokenLinks.length * LIST_ROW_HEIGHT)];
+    brokenLinksList.preferredSize = [PATH_LIST_WIDTH, Math.min(PATH_LIST_HEIGHT, (brokenLinks.length + 2) * LIST_ROW_HEIGHT)];
     saveInDocCheckBox.value = true === settings.saveInDoc;
 
     /** Removes all swaps and currently fixed paths. */
