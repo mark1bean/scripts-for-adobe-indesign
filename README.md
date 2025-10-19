@@ -157,7 +157,7 @@ Highlights all text in a chosen paragraph or character style; a non-damaging vis
 
 ## Generate Underlines
 
-[![Download Copy Things script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Generate%20Underlines.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-07-19](https://img.shields.io/badge/Version-2025--07--19-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+[![Download Copy Things script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Generate%20Underlines.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2025-10-19](https://img.shields.io/badge/Version-2025--10--19-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
 
 A script for drawing multiple, overlapping underlines.
 
