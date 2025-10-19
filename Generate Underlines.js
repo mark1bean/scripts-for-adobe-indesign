@@ -18,9 +18,10 @@
  * TIP: If the text reflows, re-run the script. It will replace the outdated underlines.
  *
  * @author m1b
- * @version 2025-07-19
+ * @version 2025-10-19
  * @discussion https://community.adobe.com/t5/indesign-discussions/multiple-underline/m-p/15416753
  */
+const mm = 2.834645;
 
 function main() {
 
@@ -34,9 +35,10 @@ function main() {
      *   - objectStyle: will be populated later from the active document.
      */
     var underlinerConfig = [
-        { key: 'Underline Black', verticalOffset: 0.5, objectStyle: undefined },
-        { key: 'Underline Blue', verticalOffset: 1.25, objectStyle: undefined },
-        { key: 'Underline Green', verticalOffset: 2, objectStyle: undefined },
+        { key: 'Underline Black', verticalOffset: 0.5 * mm, objectStyle: undefined },
+        { key: 'Underline Blue', verticalOffset: 1.25 * mm, objectStyle: undefined },
+        { key: 'Underline Green', verticalOffset: 2 * mm, objectStyle: undefined },
+        { key: 'Underline Gold', verticalOffset: 2.75 * mm, objectStyle: undefined },
     ];
 
     var settings = {
@@ -50,6 +52,8 @@ function main() {
         || !app.activeDocument.selection[0].hasOwnProperty('texts')
     )
         return alert('Please select some text and try again.');
+
+    app.scriptPreferences.measurementUnit = MeasurementUnits.POINTS;
 
     // map the underlinerConfig for convenience
     var underlinerConfigMap = {};
@@ -344,6 +348,13 @@ function Overlay(frame, name, behind) {
 
     // delete unnecessary rectangle
     this.group.rectangles[0].remove();
+
+    // set the group rectangle to no fill no stroke and no styling
+    var noneSwatch = app.activeDocument.swatches.itemByName(app.translateKeyString("$ID/None"));
+    this.group.rectangles[0].fillColor = noneSwatch;
+    this.group.rectangles[0].strokeColor = noneSwatch;
+    this.group.rectangles[0].strokeWeight = 0;
+    this.group.rectangles[0].appliedObjectStyle = app.activeDocument.objectStyles.item(0);
 
     // identifier for the group
     this.group.label = '' + this.id;
