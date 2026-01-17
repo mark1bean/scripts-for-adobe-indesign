@@ -5,12 +5,13 @@ Some scripts I've written to do useful things in Adobe Indesign.
 ## Contents
 
 1. [Copy Things](#copy-things)
-1. [Fix Links](#fix-links)
-1. [Numbered Markers](#numbered-markers)
-1. [Combine Documents](#combine-documents)
-1. [Style Highlighter](#style-highlighter)
-1. [Generate Underlines](#generate-underlines)
-1. [Synchronize All Documents Text Selection](#synchronize-all-documents-text-selection)
+2. [Fix Links](#fix-links)
+3. [Numbered Markers](#numbered-markers)
+4. [Combine Documents](#combine-documents)
+5. [Divide Document](#divide-document)
+6. [Style Highlighter](#style-highlighter)
+7. [Generate Underlines](#generate-underlines)
+8. [Synchronize All Documents Text Selection](#synchronize-all-documents-text-selection)
 
 ---
 
@@ -32,10 +33,10 @@ A script for copying/updating styles from one document to one *or more* destinat
 ### Usage
 
 1. Choose the thing type: *Character Styles, Paragraph Styles, Object Styles, Cell Styles, TableStyles, Swatches*.
-1. Filter the list of things, if it helps.
-1. Choose the things to copy.
-1. Choose the destination documents (will show all open documents).
-1. Press the Copy button to perform the copying.
+2. Filter the list of things, if it helps.
+3. Choose the things to copy.
+4. Choose the destination documents (will show all open documents).
+5. Press the Copy button to perform the copying.
 
 ### Limitations
 
@@ -63,12 +64,12 @@ This is a big problem, and when the linked files are in a complex file structure
 #### How to use
 
 1. Open your document or documents (script will process all open documents).
-1. Run script.
-1. Cilck a link from the Broken Links list.
-1. Click "Find" button and manually relink to that correct file.
-1. Script will use the new link to try to fix broken links.
-1. Repeat step 2 and 3 until Broken Links list is empty.
-1. Click "Fix [N] Links" button to perform the changes to the open document(s).
+2. Run script.
+3. Cilck a link from the Broken Links list.
+4. Click "Find" button and manually relink to that correct file.
+5. Script will use the new link to try to fix broken links.
+6. Repeat step 2 and 3 until Broken Links list is empty.
+7. Click "Fix [N] Links" button to perform the changes to the open document(s).
 
 > Tip: You can store the settings in the document(s) so the next time you need it, you won't have to perform steps 3 and 4 again. This applies in reverse, so if Alice sends the file back to Bob, when Bob runs the script it will be ready to return the paths to match Bob's environment.
 
@@ -89,7 +90,7 @@ Read the [quick tutorial](docs/numbered-markers-quick-tutorial.md). Or the ultra
  You will need:
 
 1. A marker — a text frame **with an object style applied**, eg. a circle text frame with a number in it.
-1. A numbered list — paragraphs **with a paragraph style applied**, that *must use Indesign's numbering system*, eg. a list of place names for a map legend.
+2. A numbered list — paragraphs **with a paragraph style applied**, that *must use Indesign's numbering system*, eg. a list of place names for a map legend.
 
 Run this script, choosing the list paragraph style and the marker object style and make sure that "Create missing markers" is ON.
 
@@ -113,10 +114,33 @@ A script for combining multiple documents into one.
 #### How to use
 
 1. Add all documents to a **book**, if not already. This is how you will tell the script in which *order* you want to combine the documents. Once the documents are combined, you don't need to keep this book; it is just a stepping stone.
-1. Run script and choose the book (if more than one) and set the options you want.
-1. Click "Combine"
+2. Run script and choose the book (if more than one) and set the options you want.
+3. Click "Combine"
 
 ![Combine Documents script's UI](docs/images/combine-documents-ui-1.png)
+
+#### Limitations
+
+- Not much testing done! If you find a bug, please [start a new Issue](https://github.com/mark1bean/scripts-for-adobe-indesign/issues) and always include a link to a demo document that shows the error.
+
+---
+
+## Divide Document
+
+[![Download Combine Documents script](https://img.shields.io/badge/Download_Script-*_FREE!_*_-F50?style=flat-square)](https://raw.githubusercontent.com/mark1bean/scripts-for-adobe-indesign/main/Divide%20Document.js)   ![Language: ExtendScript](https://img.shields.io/badge/Language-ExtendScript-99B?style=flat-square)   ![Version: 2026-01-17](https://img.shields.io/badge/Version-2026--01--17-5A5?style=flat-square)   [![Donate](https://img.shields.io/badge/Donate-PayPal-blue?style=flat-square)](https://www.paypal.com/donate?hosted_button_id=SBQHVWHSSTA9Q)
+
+A script for dividing a document into parts. Each output document will be N pages/spreads.
+
+> Note: attempts to split threaded text frames, and does not modify the original document.
+
+![Divide Documents script's UI](docs/images/divide-document-ui-1.png)
+
+#### How to use
+
+1. Open a document.
+2. Run script and choose the options you want.
+3. Click "Divide"
+
 
 #### Limitations
 
@@ -133,9 +157,9 @@ Highlights all text in a chosen paragraph or character style; a non-damaging vis
 #### How to use
 
 1. Run script to show the UI.
-1. Select one (or more) paragraph or character styles.
-1. Select a highlight color.
-1. Click "Add highlighter".
+2. Select one (or more) paragraph or character styles.
+3. Select a highlight color.
+4. Click "Add highlighter".
 
 ![Style Highlighter script's UI](docs/images/style-highlighter-ui-1.png)
 
