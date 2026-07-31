@@ -12,7 +12,7 @@
  *   - Swatchs
  *
  * @author m1b
- * @version 2025-05-16
+ * @version 2026-07-31
  */
 function main() {
 
@@ -404,7 +404,7 @@ function getPathOfThing(doc, thing, delimiter) {
  *
  * ---------------------------------------------------------------------------
  * @author m1b
- * @version 2025-05-11
+ * @version 2026-07-31
  * @param {Document} doc - an Indesign Document.
  * @param {String} constructorName - the thing's constructor's name, eg. 'ObjectStyle'.
  * @param {String} [path] - the path to navigate, eg. 'Group 1/Group 2/Thing' (default: get things from document root).
@@ -429,29 +429,28 @@ function getThingByPath(doc, constructorName, path, delimiter) {
     if (!thingType)
         throw new Error('getThingByPath: unknown `constructorName` supplied. (' + constructorName + ')');
 
-    var target = 1 === components.length ? doc : thingType.getSubGroups(doc),
-        component,
-        children,
-        subGroups,
-        found = [];
+    var target = doc;
+    var component;
+    var children;
+    var subGroups;
+    var found = [];
 
     while (components.length) {
 
-        component = components.shift()
+        component = components.shift();
 
         if (components.length > 0) {
 
-            // change target to the next group
-            target = target.itemByName(component);
+            // navigate into the next group by searching this node's sub groups
+            subGroups = thingType.getSubGroups(target);
+
+            if (!subGroups || !subGroups.length)
+                return;
+
+            target = subGroups.itemByName(component);
 
             if (!target.isValid)
                 return;
-
-            subGroups = thingType.getSubGroups(target)
-
-            if (subGroups && subGroups.length)
-                // change target to sub groups
-                target = subGroups;
 
             continue;
 
@@ -468,11 +467,22 @@ function getThingByPath(doc, constructorName, path, delimiter) {
 
         else {
 
-            // the specific thing specified in path
+            // the specific thing specified in path, which
+            // could be a leaf thing or a sub group (see Example 3)
             children = thingType.getChildren(target);
 
             if (children && children.length)
                 found = getThing(children, 'name', component);
+
+            if (!found || !found.isValid) {
+
+                // not a leaf thing, so try to resolve it as a sub group
+                subGroups = thingType.getSubGroups(target);
+
+                if (subGroups && subGroups.length)
+                    found = subGroups.itemByName(component);
+
+            }
 
             if (!found || !found.isValid)
                 return;
