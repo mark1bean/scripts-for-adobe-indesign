@@ -530,7 +530,7 @@ function copyThing(source, destinations, thing, tempFrame) {
     try {
 
         // make a temporary text frame
-        var tempFrame = source.textFrames.add({ contents: 'a' });
+        var tempFrame = source.textFrames.add({ geometricBounds: source.pages[0].bounds, contents: 'a' });
 
         // attach the thing to the text frame so that
         // when we duplicate it, the payload goes along
